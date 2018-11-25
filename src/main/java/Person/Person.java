@@ -1,5 +1,7 @@
 package Person;
 
+import Checker.Checker;
+import Comparer.Comparer;
 import org.joda.time.LocalDateTime;
 
 public class Person {
@@ -27,6 +29,9 @@ public class Person {
     }
 
     private LocalDateTime Birthday;
+    public LocalDateTime getBirthday(){
+        return this.Birthday;
+    }
 
     /**
      * Calculates persons age, basing on year, month and day of birthday
@@ -64,4 +69,10 @@ public class Person {
         return "ID: " + String.valueOf(this.getId()) +"\nName: " +  String.valueOf(this.getName()) + "\n" +
                 "Age: " + String.valueOf(this.getAge()) + "\nSex: " + this.getSex() + "\n";
     }
+
+    public boolean check(Checker c, Object value){
+        return c.check(this, value);
+    }
+
+    public int compare(Comparer comparer, Person value) { return comparer.compare(this, value); }
 }
